@@ -11,7 +11,10 @@ class MainHandler(tornado.web.RequestHandler):
 
     def post(self):
         code = self.get_argument('code')
-        result = run(code)
+        try:
+            result = run(code)
+        except:
+            result = "Ошибка..."
         self.render('index.html', result=result, code=code)
 
 
