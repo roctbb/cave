@@ -44,14 +44,37 @@
     </button>
 
 </nav>
-<div class="container">
+<div class="container" style="margin-top: 10px;">
     <div class="row">
+
+        <div class="card col-md-8 mr-auto ml-auto">
+            <div class="card-body">
+                <p>Калькулятор понимает тройки двоичных чисел вида <span class="badge badge-secondary">команда</span> <span class="badge badge-success">аргумент 1</span> <span class="badge badge-success">аргумент 2</span>, для разделения можно использовать пробелы или переносы строки.</p>
+
+                <p>Чтобы подставить в формулу результат предыдущей операции (ANS), используйте <span class="badge badge-success">11111111</span> в качестве аргумента.</p>
+
+                <strong>Доступные команды:</strong>
+                <ul>
+                    <li><span class="badge badge-secondary">00000001</span> - сложение</li>
+                    <li><span class="badge badge-secondary">00000010</span> - вычитание</li>
+                    <li><span class="badge badge-secondary">00000011</span> - умножение</li>
+                    <li><span class="badge badge-secondary">00000100</span> - деление</li>
+                </ul>
+
+                <strong>Пример: программа для вычисления (6 + 10) / 2<br>&nbsp;</strong>
+
+                <pre>
+00000001 00000110 00001010
+00000100 11111111 00000010
+                </pre>
+            </div>
+        </div>
+
         <div class="col-md-8 mr-auto ml-auto">
             <form method="POST" style="margin-top: 30px;">
                 <textarea id="area" name="code" style="display: none;">{{code}}</textarea>
-                <div class="ace_editor" id="editor"></div>
+                <div class="ace_editor" id="editor" style="margin-bottom: 7px;"></div>
 
-                <p>&nbsp;</p>
 
                 {% if result != "" %}
 
